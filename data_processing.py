@@ -22,6 +22,4 @@ class PreprocessData():
     def executeProcessing(self):
         self.doFFT()
 
-        # Return the value
-        return self.value
 

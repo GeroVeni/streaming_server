@@ -26,7 +26,9 @@ class MyHandler(BaseHTTPRequestHandler):
             # Do some processing of the data
             myDict = data_processing.PreprocessData(myDict)
 
-        print(myDict)
+            processedDict = myDict.value
+
+        print(processedDict)
 
         # Write to output / Send response
         self.wfile.write(bytes(json.dumps(myDict), 'utf-8'))
