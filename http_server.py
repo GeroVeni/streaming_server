@@ -18,6 +18,7 @@ class MyHandler(BaseHTTPRequestHandler):
         # Parse the request URL to get the parameters
         query = urlparse(self.path).query
         myDict = {}
+        processedDict = {}
         for qc in query.split('&'):
             arg_pair = qc.split("=")
             if len(arg_pair) < 2: continue # No argument pair detected
@@ -31,7 +32,7 @@ class MyHandler(BaseHTTPRequestHandler):
         print(processedDict)
 
         # Write to output / Send response
-        self.wfile.write(bytes(json.dumps(myDict), 'utf-8'))
+        self.wfile.write(bytes(json.dumps(processedDict), 'utf-8'))
 
 server = HTTPServer(("webserver.srcf.net", 8080), MyHandler)
 print("Serving ...")
