@@ -15,7 +15,7 @@ class PreprocessData():
             return noDataMessage
         rawSequenceString = self.value["data"]
         rawSequence = json.loads(rawSequenceString)
-        fftSequence = np.fft.fft(rawSequence)
+        fftSequence = abs(np.fft.fft(rawSequence))
 
         self.value["data"] = fftSequence
 
